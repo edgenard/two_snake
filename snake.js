@@ -1,51 +1,49 @@
 (function () {
   "use strict";
-  // if (if typeof Snake === "undefined") {
-  //     Snake = {}
-  // }
-  
-  function Snake() {
-    this.dir = "S";
-    this.segments = [[0, 0]];
-    
+  if ( typeof Snake === "undefined") {
+      window.Snake = {};
   }
   
-  Snake.prototype.move = function () {
+  var snake = Snake.snake = function () {
+    this.dir = "E";
+    this.segments = [[0, 0], [0, 1]];
+    
+  };
+  
+  snake.prototype.move = function () {
+    var head = this._dup(this.segments[this.segments.length - 1]);
+    this.segments.shift();
     if (this.dir === "S") {
-      this.segments.forEach(this._goSouth, this);
-      
+      head[0] = head[0] + 1;
+      this.segments.push(head);
     } else if (this.dir === "N") {
-      this.segments.forEach(this._goNorth, this);
+      head[0] = head[0] - 1;
+      this.segments.push(head);
     } else if (this.dir === "E") {
-      this.segments.forEach(this._goEast, this);
+      head[1] = head[1] + 1;
+      this.segments.push(head);
     } else {
-      this.segments.forEach(this._goWest,this);
+      head[1] = head[1] - 1;
+      this.segments.push(head);
     }
   };
   
-  
-  Snake.prototype._goSouth = function (segment) {
-    segment[0] = segment[0] + 1;
+  snake.prototype._dup = function (arr) {
+    var newArr = [];
+    arr.forEach(function(el, i){
+      newArr[i] = el;
+    });
+    return newArr;
   };
   
-  Snake.prototype._goNorth = function (segment) {
-    segment[0] = segment[0] - 1;
-  };
+
   
-  Snake.prototype._goEast = function (segment) {
-    segment[1] = segment[1] + 1;
-  };
-  
-  Snake.prototype._goEast = function (segment) {
-    segment[1] = segment[1] - 1;
-  };
-  
-  Snake.prototype.turn = function (direction) {
-    if (direction === "Up") {
+  snake.prototype.turn = function (direction) {
+    if (direction === "up") {
       this.dir = "N";
-    } else if(direction === "Down") {
+    } else if(direction === "down") {
       this.dir = "S";
-    } else if (direction === "Right"){
+    } else if (direction === "right"){
       this.dir = "E";
     }else {
       this.dir = "W";
@@ -53,40 +51,55 @@
   };
   
   
-  function Board() {
-    this.snake = new Snake();
+  var board = Snake.board = function () {
+    this.snake = new Snake.snake();
     this.grid =  [ [[0, 0],  [0, 1], [0, 2]],
                    [[1, 0],  [1, 1], [1, 2]],               
                    [[2, 0],  [2, 1], [2, 2]] ];
     
-  }
-
-
-  Board.prototype.render = function () {
-    this.grid.forEach(this._printRow, this);
   };
-  
-  
-  Board.prototype._printRow = function (row) {
+
+
+  board.prototype.render = function () {
+    this.snake.move();
+    this._keepSnakeVisible(this.snake.segments[this.snake.segments.length - 1]);
     var rowString = "";
     var that = this;
-    row.forEach(function(cell){
+    this.grid.forEach(function (row) {
       
-      if (that._include(that.snake.segments, cell)) {
-        rowString = rowString + "S";
-      } else {
-        rowString = rowString + ".";
-      }
+      row.forEach(function(cell){
+        if (that._include(that.snake.segments, cell)) {
+          rowString = rowString + "S";
+        } else {
+          rowString = rowString + ".";
+        }
+      });
+      rowString = rowString + "<br>";
     });
-    
-    console.log(rowString);
+    return rowString;
   };
 
 
-  Board.prototype._include = function (arr, cell) {
+  board.prototype._include = function (arr, cell) {
     return arr.some(function(arrCell){
       return arrCell[0] === cell[0] && arrCell[1] === cell[1];
     });
+  };
+  
+  board.prototype._keepSnakeVisible = function (head) {
+    var that = this;
+    head.forEach(function(pos,i){
+      if (pos < 0){
+        head[i] = that.grid.length - 1;
+      } else if (pos > that.grid.length - 1){
+        head[i] = 0;
+      }
+    });
+  };
+  
+  
+  board.prototype.turnSnake = function (direction) {
+    this.snake.turn(direction);
   };
 
   
