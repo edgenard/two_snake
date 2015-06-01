@@ -1,16 +1,472 @@
 <html>
   <head>
     <title>TwoSnake</title>
+    <link rel="stylesheet" href="snake.css" charset="utf-8">
   </head>
   <body>
     
-    <pre class="snake-board">
-      hello
-    </pre>
-    
+    <div class="snake-board group" tabindex=1 >
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+      
+      <ul class="row group">
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+        <li class="cell"></li>
+      </ul>
+
+      
+    </div>
     
   <script src="jquery-2.1.4.min.js">
-  </script>
+  </script> 
   <script src="snake.js">
   </script>
   <script src="snake-view.js">
