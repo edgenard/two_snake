@@ -1,3 +1,20 @@
+body {
+  background: transparent;
+  font-family: sans-serif;
+  
+}
+
+header {
+  margin: 20px auto;
+  width: 400px;
+}
+
+main {
+  margin: 10px auto;
+  width: 1000px;
+}
+
+
 .group::after {
   content: "";
   display: block;
@@ -6,12 +23,15 @@
 
 .snake-board {
   display: block;
+  position: relative;
   width: 400px;
   height: 400px;
   border: 5px solid black;
   font-size:30px;
   padding: 0;
   margin: 20px auto;
+  outline:none;
+  float: left;
 }
 
 ul {
@@ -31,4 +51,58 @@ li {
   height: 20px;
   float: left;
   background: grey;
+}
+
+
+.snake-score-1, .snake-score-2 {
+  float: left;
+  padding: 0 25px;
+  
+}
+
+.snake-score-1 {
+  color: black;
+}
+
+.snake-score-2 {
+  color: green;
+}
+
+.start-screen {
+  display: block;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  font-size: 16px;
+  
+}
+
+.start-screen h2 {
+  font-size: 24px;
+  width: 200px;
+  margin: 10px auto;
+}
+
+.start-screen h3 {
+  font-size: 18px;
+}
+
+.start-screen h4 {
+  font-size: 16px;
+}
+
+.start-screen button {
+  outline: none;
+  border: 1px solid black;
+  padding: 10px;
+  display: block;
+  float: left;
+  margin-left: 100px;
+  
+}
+
+.start-screen button:hover {
+  background: black;
+  color: white;
+  
 }

@@ -8,25 +8,14 @@
     this.dir = "E";
     this.segments = [[0, 0], [0, 1], [0, 2]];
     this.color = "black";
+    this.score = 0;
     
   };
   
   snake.prototype.move = function () {
-    var head = this._dup(this.segments[this.segments.length - 1]);
     this.segments.shift();
-    if (this.dir === "S") {
-      head[0] = head[0] + 1;
-      this.segments.push(head);
-    } else if (this.dir === "N") {
-      head[0] = head[0] - 1;
-      this.segments.push(head);
-    } else if (this.dir === "E") {
-      head[1] = head[1] + 1;
-      this.segments.push(head);
-    } else {
-      head[1] = head[1] - 1;
-      this.segments.push(head);
-    }
+    this.addSegment();
+    
   };
   
   snake.prototype._dup = function (arr) {
@@ -51,18 +40,49 @@
     }
   };
   
+  snake.prototype.addSegment = function () {
+    var head = this.head();
+    if (this.dir === "S") {
+      head[0] = head[0] + 1;
+      
+    } else if (this.dir === "N") {
+      head[0] = head[0] - 1;
+      
+    } else if (this.dir === "E") {
+      head[1] = head[1] + 1;
+      
+    } else {
+      head[1] = head[1] - 1;
+      
+    }
+    this.segments.push(head);
+  };
+  
+  snake.prototype.head = function () {
+    return this._dup(this.segments[this.segments.length - 1]);
+  };
+  
+  snake.prototype.die = function () {
+    this.segments = [[]];
+  };
   
   var board = Snake.board = function () {
     this.snake = new Snake.snake();
     this.grid =  this._buildGrid();
     this.apple = [9, 9];
+    this.keepRendering = true;
     
   };
 
 
   board.prototype.render = function ($el) {
-    this.snake.move();
-    this._keepSnakeVisible(this.snake.segments[this.snake.segments.length - 1]);
+    if (this.checkSnake()) {
+      this.snake.move();
+      this.growSnake();
+      this._keepSnakeVisible(this.snake.segments[this.snake.segments.length - 1]);
+    }
+
+    
     var that = this;
     this.grid.forEach(function (cell) {
       var ul = "ul:nth-of-type(" + (cell[0] + 1) + ")";
@@ -87,8 +107,8 @@
   };
   
   board.prototype._keepSnakeVisible = function (head) {
-    var that = this;
-    var edge = 20;
+
+    var edge = 19;
     head.forEach(function(pos,i){
       if (pos < 0){
         head[i] = 20 ;
@@ -125,7 +145,26 @@
       this.apple[1] = Math.floor(Math.random() * 20);
     } while (this._include(this.snake.segments, this.apple));
   };
+  
+  board.prototype.growSnake = function () {
+    var head = this.snake.segments[this.snake.segments.length - 1];
+    if (this._include([head], this.apple )) {
+      this.apple = [21, 21];
+      this.snake.addSegment();
+      this.snake.score += 10;
+    }
+    
+  };
 
+  board.prototype.checkSnake = function () {
+    var head = this.snake.head();
+    var snakeSansHead = this.snake.segments.slice(0, this.snake.segments.length - 2);
+    if (this._include(snakeSansHead, head)) {
+        this.keepRendering = false;
+        return false;
+    }
+    return true;
+  };
 
   
   

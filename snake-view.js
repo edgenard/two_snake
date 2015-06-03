@@ -8,8 +8,10 @@
     this.board = new Snake.board();
     this.$el.focus();
     this.$el.on("keydown", this.handleKeyDown.bind(this));
-    setInterval(this.step.bind(this), 300);
-    setInterval(this.board.setApple.bind(this.board), 4000);
+
+    this.keepPlaying = setInterval(this.step.bind(this), 200);
+
+    this.appleMove = setInterval(this.board.setApple.bind(this.board), 6000);
     this.keyCodes = {
       37: "left",
       38: "up",
@@ -25,8 +27,17 @@
   };
   
   view.prototype.step = function () {
-
+    $(".snake-score-1 h3").html(this.board.snake.score);
     this.$el.html(this.board.render(this.$el));
+    !this.board.keepRendering && this.stopPlaying();
+    
+  };
+  
+  view.prototype.stopPlaying = function () {
+    clearInterval(this.keepPlaying);
+    clearInterval(this.appleMove);
+    this.$el.find(".end-screen").css("display", "block");
+    
   };
   
   
