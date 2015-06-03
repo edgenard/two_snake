@@ -489,7 +489,7 @@
 
       <section class="end-screen">
         <h2>  died</h2>
-        <h3> The winning score was </h3>
+        <h3 class="winning-score"> The High score is </h3>
         <h3>Play Again</h3>
         <button class="play-1" name="button">1 Player</button>
         <button class="play-2" name="button">2 Player</button>
@@ -513,6 +513,7 @@
     $(function(){
       $(".play-1").on("click", function(){
         $(".start-screen").css("display", "none");
+        $(".end-screen").css("display", "none");
         new Snake.view($(".snake-board"))
       })
       

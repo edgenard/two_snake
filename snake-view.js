@@ -9,7 +9,7 @@
     this.$el.focus();
     this.$el.on("keydown", this.handleKeyDown.bind(this));
 
-    this.keepPlaying = setInterval(this.step.bind(this), 200);
+    this.keepPlaying = setInterval(this.step.bind(this), 100);
 
     this.appleMove = setInterval(this.board.setApple.bind(this.board), 6000);
     this.keyCodes = {
@@ -37,6 +37,8 @@
     clearInterval(this.keepPlaying);
     clearInterval(this.appleMove);
     this.$el.find(".end-screen").css("display", "block");
+    var score = this.board.snake.score;
+    $(".end-screen .winning-score").text("The high score is " + score);
     
   };
   
