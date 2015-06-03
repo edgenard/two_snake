@@ -145,7 +145,7 @@
     if (this.players > 1) {
       var head2 = this.snake2.head();
       var snakeSansHead2 = this.snake2.segments.slice(0, this.snake2.segments.length - 2);
-      if (this._include(snakeSansHead1, head1) || this._include(snakeSansHead2, head2) ) {
+      if (this._include(snakeSansHead1, head1) || this._include(snakeSansHead2, head2) || this._include(this.snake1.segments, head2) || this._include(this.snake2.segments, head1) ) {
           this.keepRendering = false;
           return false;
       }

@@ -11,7 +11,7 @@
 
     this.keepPlaying = setInterval(this.step.bind(this), 100);
 
-    this.appleMove = setInterval(this.board.setApple.bind(this.board), 6000);
+    this.appleMove = setInterval(this.board.setApple.bind(this.board), 5000);
     this.keyCodes = {
       37: "left",
       38: "up",
@@ -36,6 +36,7 @@
     this.$el.find(".end-screen").css("display", "block");
     var score = this.board.highScore();
     $(".end-screen .winning-score").text("The high score is " + score);
+    
     
   };
   
