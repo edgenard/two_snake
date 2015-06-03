@@ -68,7 +68,7 @@ li {
   color: green;
 }
 
-.start-screen {
+.start-screen, .end-screen {
   display: block;
   position: absolute;
   width: 400px;
@@ -77,21 +77,21 @@ li {
   
 }
 
-.start-screen h2 {
+ h2 {
   font-size: 24px;
   width: 200px;
   margin: 10px auto;
 }
 
-.start-screen h3 {
+ h3 {
   font-size: 18px;
 }
 
-.start-screen h4 {
+h4 {
   font-size: 16px;
 }
 
-.start-screen button {
+.start-screen button, .end-screen button {
   outline: none;
   border: 1px solid black;
   padding: 10px;
@@ -101,8 +101,15 @@ li {
   
 }
 
-.start-screen button:hover {
+.start-screen button:hover, .end-screen button:hover {
   background: black;
   color: white;
+  
+}
+
+.end-screen{
+  display: none;
+  top: 0;
+  left: 0;
   
 }
