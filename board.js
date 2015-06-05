@@ -85,9 +85,6 @@
   };
 
 
-  board.prototype.turnSnakes = function (direction) {
-    this.snake1.turn(direction);
-  };
 
   board.prototype._buildGrid = function () {
     var grid = [];
@@ -149,12 +146,12 @@
           this.keepRendering = false;
           return false;
       } else if (this._include(this.snake1.segments, head2)) {//snake2 eats snake1
-        this.snake2.score = Math.floor(this.snake2.score / 3);
+        this.snake2.score = 0;
         this.keepRendering = false;
         return false;
         
       } else if (this._include(this.snake2.segments, head1)){//snake1 eats snake2
-        this.snake1.score = Math.floor(this.snake1.score / 3);
+        this.snake1.score = 0;
         
         this.keepRendering = false;
         return false;

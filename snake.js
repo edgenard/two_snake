@@ -71,9 +71,7 @@
     return this._dup(this.segments[this.segments.length - 1]);
   };
   
-  snake.prototype.die = function () {
-    this.segments = [[]];
-  };
+
   
 
   
