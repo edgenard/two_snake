@@ -145,12 +145,24 @@
     if (this.players > 1) {
       var head2 = this.snake2.head();
       var snakeSansHead2 = this.snake2.segments.slice(0, this.snake2.segments.length - 2);
-      if (this._include(snakeSansHead1, head1) || this._include(snakeSansHead2, head2) || this._include(this.snake1.segments, head2) || this._include(this.snake2.segments, head1) ) {
+      if (this._include(snakeSansHead1, head1) || this._include(snakeSansHead2, head2)  ) {//snakes eat themselves.
           this.keepRendering = false;
           return false;
+      } else if (this._include(this.snake1.segments, head2)) {//snake2 eats snake1
+        this.snake2.score = Math.floor(this.snake2.score / 3);
+        this.keepRendering = false;
+        return false;
+        
+      } else if (this._include(this.snake2.segments, head1)){//snake1 eats snake2
+        this.snake1.score = Math.floor(this.snake1.score / 3);
+        
+        this.keepRendering = false;
+        return false;
+        
       }
+      
     } else {
-      if (this._include(snakeSansHead1, head1)) {
+      if (this._include(snakeSansHead1, head1)) {//snake eating itself
         this.keepRendering = false;
         return false;
       }
@@ -179,6 +191,17 @@
       highScore = score1;
     }
     return highScore;
+  };
+  
+  
+  board.prototype.winner = function () {
+    var winner;
+    if (this.players > 1) {
+      winner = this.snake1.score > this.snake2.score ?  "Black Snake" : "Green Snake";
+    } else {
+      return;
+    }
+    return winner;
   };
 
 })();

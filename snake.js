@@ -32,16 +32,22 @@
   
   snake.prototype.turn = function (event, handler) {
     var direction = handler.shortcut;
+
     if (direction === "up" || direction === "w") {
-      this.dir = "N";
+      
+      if(this.dir !== "S") this.dir = "N";
+      
     } else if(direction === "down" || direction === "s") {
-      this.dir = "S";
+      
+      if (this.dir !== "N") this.dir = "S";
+      
     } else if (direction === "right" || direction === "d"){
-      this.dir = "E";
+      if(this.dir !== "W") this.dir = "E";
     }else {
-      this.dir = "W";
+      if(this.dir !== "E") this.dir = "W";
     }
   };
+
   
   snake.prototype.addSegment = function () {
     var head = this.head();

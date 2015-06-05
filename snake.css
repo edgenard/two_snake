@@ -57,7 +57,12 @@ li {
 .snake-score-1, .snake-score-2 {
   float: left;
   padding: 0 25px;
+  width: 200px;
   
+}
+
+.snake-score-1 p, .snake-score-2 p {
+  margin-top: 175px;
 }
 
 .snake-score-1 {
