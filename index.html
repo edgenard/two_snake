@@ -1,12 +1,12 @@
 <html>
   <head>
     <title>TwoSnake</title>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="snake.css" charset="utf-8">
   </head>
   <body>
     <header>
       <h1>TwoSnake</h1>
-      <h3></h3>
     </header>
   <main class="group">
     
@@ -25,15 +25,14 @@
     </section>
       
     <div class="snake-board group" tabindex=1 >
-      <section class="start-screen">
-        <h2>TwoSnake</h2>
+      <section class="start-screen group">
         <div class="player-1">
           <h3>Player 1: Black Snake</h3>
-          <h4>Arrows to move. Eat the cherries to grow. Dont eat yourself or Green Snake</h4>
+          <p>Arrows to move. Eat the cherries to grow. Dont eat yourself or Green Snake</p>
         </div>
         <div class="player-2">
           <h3>Player 2: Green Snake</h3>
-          <h4>WASD to move. Eat the cherries to grow. Dont eat yourself or Black Snake</h4>
+          <p>WASD to move. Eat the cherries to grow. Dont eat yourself or Black Snake</p>
         </div>
         
         <button class="play-1" name="button">1 Player</button>
@@ -498,10 +497,13 @@
 
       <section class="end-screen">
         <h2>Game Over!</h2>
+        <h3 class="winner"></h3>
         <h3 class="winning-score"> The High score is </h3>
         <h3>Play Again</h3>
-        <button class="play-1" name="button">1 Player</button>
-        <button class="play-2" name="button">2 Player</button>
+        <div class="play-again">
+          <button class="play-1" name="button">1 Player</button>
+          <button class="play-2" name="button">2 Player</button>
+      </div>
       </section>
     </div>
     

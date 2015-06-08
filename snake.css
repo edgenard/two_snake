@@ -1,15 +1,72 @@
-body {
+body, header, main, footer, h1, h2, h3, h4, h5, h6, p, a, aside, article, section, ul, ol, li, input, button, figure, figcaption, fieldset, textarea{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
   background: transparent;
-  font-family: sans-serif;
+  color: inherit;
+  box-sizing: border-box;
+  font: inherit;
+  text-decoration: none;
+  text-align: inherit;
   
 }
 
+ul, ol {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+
+body {
+  display: flex;
+  flex-flow: column;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  background: #FFE8CC;
+  font-size: 16px;
+  font-weight: normal;
+
+}
+
+h1, h2, h3, h4 ,h5, h6 {
+  font-family: "Arvo", Georgia, serif;
+  font-weight: bold;
+}
+
 header {
+  background:#ffa943;
+}
+
+h1 {
+  font-size: 36px;
   margin: 20px auto;
   width: 400px;
 }
 
+
+h2 {
+  font-size: 24px;
+  width: 200px;
+  margin: 10px auto;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
 main {
+  display: flex;
+  flex-flow: row nowrap;
   margin: 10px auto;
   width: 1000px;
 }
@@ -55,7 +112,6 @@ li {
 
 
 .snake-score-1, .snake-score-2 {
-  float: left;
   padding: 0 25px;
   width: 200px;
   
@@ -74,35 +130,36 @@ li {
 }
 
 .start-screen, .end-screen {
-  display: block;
+  display: flex;
+  flex-flow: row wrap;
   position: absolute;
+  justify-content: space-around;
+  align-content: flex-start;
   width: 400px;
   height: 400px;
   font-size: 16px;
   
 }
 
- h2 {
-  font-size: 24px;
-  width: 200px;
-  margin: 10px auto;
-}
 
- h3 {
-  font-size: 18px;
-}
 
-h4 {
+.start-screen h3, .end-screen h3 {
   font-size: 16px;
 }
+
+.player-1 , .player-2{
+  width: 160px;
+  padding: 10px;
+}
+
+
 
 .start-screen button, .end-screen button {
   outline: none;
   border: 1px solid black;
   padding: 10px;
-  display: block;
-  float: left;
-  margin-left: 100px;
+  margin: 0 15px;
+
   
 }
 
@@ -117,5 +174,7 @@ h4 {
   top: 0;
   left: 0;
   background: grey;
+  flex-flow: column;
+  align-items: center;
   
 }
