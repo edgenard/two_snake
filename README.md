@@ -31,7 +31,7 @@ This class handled the snakes, their movement and their growth. It also kept tra
 
 ## Board 
 This creates 1 or 2 new snakes when initialized, builds a grid to represent the board, sets the apple, tells the snakes when to grow, keeps snakes visible and checks if they are still alive or dead. It's render method draws the representation of the current state of the board to the user.
-
+                                                                                                    
 ### Public API
 * `#render` - This is the "workhorse" method for this class and the whole game. It checks the state of the game  and represents its to the user.
   * Shows the position of the snakes
