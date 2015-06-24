@@ -15,13 +15,14 @@ This class handled the snakes, their movement and their growth. It also kept tra
 * `color` - The color of the snake for drawing on the board. These are passed in as an option when creating the snake.
 * `score` - The current score of the snake
 * `move` - This moved the snake in the current direction 
-* `addSegment` - This tells the snake to add a segment to itself. Also used by the move method, but that method first removes a segment. 
+* `addSegment` - This tells the snake to add a segment to itself. Also used by the move method, but that method first removes a segment.
+* `turn` - This is a callback bound to shortcuts set by using the [Keymaster.js](https://github.com/madrobby/keymaster) library. It is called anytime the shortcuts set for a particular snake are fired. It turns the snake in the direction indicated by the shortcut. 
 
 ### Private API
 
 *Not really private, anyone get at them but these methods are meant to be used internally by the snake.* 
 
-* `turn` - This is a callback bound to shortcuts set by using the [Keymaster.js](https://github.com/madrobby/keymaster) library. It is called anytime the shortcuts set for a particular snake are fired. It turns the snake in the direction indicated by the shortcut.
+
 * `head` - This creates a duplicate of the current head of the snake. This was used in the `#addSegment` method to add a new head to the snake without affecting the current head.
 * `dir` - This is an instance variable that keeps track of the current direction the snake is going. 
 * `shortcuts` - an option passed it when creating a new snake. This will tell it what keys to listen to when turning.
