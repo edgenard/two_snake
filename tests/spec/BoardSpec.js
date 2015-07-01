@@ -12,7 +12,17 @@ describe("Board", function () {
     loadFixtures("board.html");
     this.board = new Snake.board(2);
   });
-  xit("renders the board correctly");  // I think I should get rid of the rendering of ui in the render function and just test that the grid is reflecting the game state
+  it("renders the board correctly", function () {
+    this.board.snake1.segments = [[0,18], [0,19]];
+
+    this.board.render($(".snake-board"));
+    var ul = "ul:nth-of-type(" + (1) + ")";
+    var li = "li:nth-of-type(" +(20) + ")";
+    console.log($(".snake-board").children().first()[0].innerHTML);
+    console.log($(ul + " " + li)[0].outerHTML);
+    var cell = $(ul + " " + li)[0].outerHTML;
+    expect(cell).toHaveCss({background: "black"})
+  });
 
   it("keep snakes visible", function () {
     this.board.snake1.segments = [[0,18], [0,19]]
