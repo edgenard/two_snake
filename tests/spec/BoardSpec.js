@@ -12,17 +12,29 @@ describe("Board", function () {
     loadFixtures("board.html");
     this.board = new Snake.board(2);
   });
-  it("renders the board correctly", function () {
+  it("renders the snake correctly", function () {
     this.board.snake1.segments = [[0,18], [0,19]];
 
     this.board.render($(".snake-board"));
-    var ul = "ul:nth-of-type(" + (1) + ")";
-    var li = "li:nth-of-type(" +(20) + ")";
-    console.log($(".snake-board").children().first()[0].innerHTML);
-    console.log($(ul + " " + li)[0].outerHTML);
-    var cell = $(ul + " " + li)[0].outerHTML;
-    expect(cell).toHaveCss({background: "black"})
+    var snakeRow = this.board.snake1.segments[0][0] + 1;
+    var snakeCol = this.board.snake1.segments[0][1] + 1;
+
+    var ulSnake = "ul:nth-of-type(" + snakeRow + ")";
+    var liSnake = "li:nth-of-type(" + snakeCol + ")";
+    var cellSnake = $(ulSnake + " " + liSnake)[0].outerHTML;
+    expect(cellSnake).toHaveCss({background: "black"})
   });
+
+  it("renders the apple correctly", function () {
+    this.board.render($(".snake-board"));
+    var appleRow = this.board.apple[0] + 1;
+    var appleCol = this.board.apple[0] + 1;
+    var ulApple =  "ul:nth-of-type(" + appleRow + ")";
+    var liApple = "li:nth-of-type(" + appleCol + ")";
+    var cellApple = $(ulApple + " " + liApple)[0].outerHTML;
+    expect(cellApple).toHaveCss({background: "red"})
+  });
+
 
   it("keep snakes visible", function () {
     this.board.snake1.segments = [[0,18], [0,19]]
