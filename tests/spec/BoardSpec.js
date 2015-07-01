@@ -36,21 +36,33 @@ describe("Board", function () {
     this.board.snake1.segments = [[0, 2], [0, 3], [0,4], [1,4], [1, 3]]
     this.board.snake1.dir = "N";
     this.board.moveSnakes();
-    console.log(this.board.snake1.segments);
     expect(this.board.checkSnakes()).toEqual(false);
     expect(this.board.keepRendering).toEqual(false);
   });
 
-  it("checks that a snake has not eaten the other snake");
+  it("realizes when a snake has eaten another snake", function () {
+    this.board.snake1.segments = [[0,0], [0,1], [0,2]];
+    this.board.snake2.segments = [[1,0], [1,1], [1,2]];
+    this.board.snake2.dir = "N";
+    this.board.moveSnakes();
+    expect(this.board.checkSnakes()).toEqual(false);
+    expect(this.board.keepRendering).toEqual(false);
 
-  it("stops rendering when one of the snakes has died");
-
-  it("returns the high score");
-
-  it("returns the correct winner");
+  });
 
 
 
+  it("returns the high score and correct winner ", function () {
+    this.board.snake1.segments = [[0,0], [0,1], [0,2]];
+    this.board.snake2.segments = [[1,0], [1,1], [1,2]];
+    this.board.snake2.dir = "N";
+    this.board.snake2.score = 30;
+    this.board.snake1.score = 10
+    this.board.moveSnakes();
+    this.board.checkSnakes();
+    expect(this.board.winner()).toEqual("Black Snake");
+    expect(this.board.highScore()).toEqual(10);
+  });
 
 
 
