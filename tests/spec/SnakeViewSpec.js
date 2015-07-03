@@ -8,7 +8,7 @@ describe("Snake-View", function () {
 
 
 
-  it("creates a board with right number of players when initialized", function () {
+  it("creates a board with right number of players", function () {
     expect(view.board.players).toEqual(2);
   });
 
@@ -18,24 +18,25 @@ describe("Snake-View", function () {
      expect("focus").toHaveBeenTriggeredOn(".snake-board");
   });
 
-  xit("calls step every 100 milliseconds", function () {
-    jasmine.clock().install();
-    spyOn(view, "step");
 
-    expect(view.step).not.toHaveBeenCalled();
-    jasmine.clock().tick(200);
-    expect(view.step).toHaveBeenCalled();
-    jasmine.clock().uninstall();
+  it("updates the score correctly on the page", function () {
+    view.board.snake1.score = 50;
+    view.board.snake2.score = 60;
+    view.step();
+    expect($(".snake-score-1 h3")[0]).toHaveText("50");
+    expect($(".snake-score-2 h3")[0]).toHaveText("60");
   });
 
-  it("calls appleMove every 5 seconds");
 
-  it("updates the score correctly on the page");
-
-  it("it clears the intervals when game is over ");
-
-  it("shows the right score for each snake");
-
-  it("shows the correct winner");
+  it("shows the correct winner and high score", function () {
+    view.board.snake1.score = 50;
+    view.board.snake2.score = 0;
+    console.log($(".end-screen .winning-score")[0])
+    view.stopPlaying();
+    var winningScore = $(".end-screen .winning-score")[0].innerHTML
+    expect($(".end-screen .winner")[0]).toHaveText("The winner is Black Snake");
+    expect(winningScore).toEqual("The high score is 50")
+    console.log($(".end-screen .winning-score")[0].innerHTML)
+  });
 
 })
