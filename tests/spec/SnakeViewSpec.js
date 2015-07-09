@@ -2,7 +2,7 @@ describe("Snake-View", function () {
   beforeEach(function () {
     jasmine.getFixtures().fixturesPath = "../tests/fixtures/";
     loadFixtures("board.html");
-    view = new Snake.view($(".snake-board"), 2);
+    view = new Snake.View($(".snake-board"), 2);
 
   });
 
@@ -14,7 +14,7 @@ describe("Snake-View", function () {
 
   it("focuses on the board when initialized", function () {
      var spyFocus = spyOnEvent(".snake-board", "focus");
-     var view = new Snake.view($(".snake-board"), 1);
+     var view = new Snake.View($(".snake-board"), 1);
      expect("focus").toHaveBeenTriggeredOn(".snake-board");
   });
 

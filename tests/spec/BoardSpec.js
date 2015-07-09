@@ -1,16 +1,16 @@
 describe("Board", function () {
 
   it("initialized with correct number of players", function () {
-    var board1 = new Snake.board(1);
+    var board1 = new Snake.Board(1);
     expect(board1.players).toEqual(1);
-    var board2 = new Snake.board(2);
+    var board2 = new Snake.Board(2);
     expect(board2.players).toEqual(2);
   });
 
   beforeEach(function () {
     jasmine.getFixtures().fixturesPath = "../tests/fixtures/";
     loadFixtures("board.html");
-    this.board = new Snake.board(2);
+    this.board = new Snake.Board(2);
   });
   xit("renders the snake correctly", function () {
     this.board.snake1.segments = [[0,18], [0,19]];
