@@ -214,3 +214,41 @@ li {
           align-items: center;
 
 }
+
+
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 410px;
+  margin: 20px auto;
+}
+
+
+footer a:first-child {
+  display: block;
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 3px;
+  color: green;
+}
+
+footer a:last-child {
+  display: block;
+  border: 1px solid green;
+  padding: 7px;
+  border-radius: 3px;
+  color: black;
+
+}
+
+footer a:first-child:hover {
+  background: black;
+  color: green;
+
+}
+
+footer a:last-child:hover {
+  background: green;
+  color: black;
+}
