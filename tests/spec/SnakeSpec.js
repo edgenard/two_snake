@@ -1,6 +1,6 @@
 describe("Snake", function () {
   beforeEach(function () {
-    this.snake = new Snake.Snake({color: "black", 
+    this.snake = new Snake.Snake({color: "black",
                                  startingPos: [[0,0], [0,1]],
                                  shortcuts: ["up", "down", "left", "right" ]});
   });
@@ -8,7 +8,6 @@ describe("Snake", function () {
   it("starts off with the given options ", function () {
     expect(this.snake.segments).toEqual([[0,0], [0, 1]]);
     expect(this.snake.color).toBe("black");
-    expect(this.snake.shortcuts).toEqual("up, down, left, right");
     expect(this.snake.dir).toEqual("E");
     expect(this.snake.score).toEqual(0);
   });

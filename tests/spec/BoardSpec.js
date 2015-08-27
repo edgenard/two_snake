@@ -12,7 +12,7 @@ describe("Board", function () {
     loadFixtures("board.html");
     this.board = new Snake.Board(2);
   });
-  xit("renders the snake correctly", function () {
+  it("renders the snake correctly", function () {
     this.board.snake1.segments = [[0,18], [0,19]];
 
     this.board.render($(".snake-board"));
@@ -25,7 +25,7 @@ describe("Board", function () {
     expect(cellSnake).toHaveCss({background: "black"})
   });
 
-  xit("renders the apple correctly", function () {
+  it("renders the apple correctly", function () {
     this.board.render($(".snake-board"));
     var appleRow = this.board.apple[0] + 1;
     var appleCol = this.board.apple[0] + 1;
