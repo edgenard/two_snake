@@ -7,7 +7,7 @@ describe("Snake", function () {
 
   it("starts off with the given options ", function () {
     expect(this.snake._segments).toEqual([[0,0], [0, 1]]);
-    expect(this.snake._color).toBe("black");
+    expect(this.snake.getColor()).toBe("black");
     expect(this.snake._dir).toEqual("E");
     expect(this.snake.score).toEqual(0);
   });
