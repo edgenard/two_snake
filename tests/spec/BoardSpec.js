@@ -56,8 +56,8 @@ describe("Board", function () {
   });
 
   it("realizes when a snake has eaten itself", function () {
-    this.board.snake1.segments = [[0, 2], [0, 3], [0,4], [1,4], [1, 3]]
-    this.board.snake1.dir = "N";
+    this.board.snake1.segments = [[0, 2], [0, 3], [0,4], [1,4], [1, 3]];
+    this.board.snake1._dir = "N";
     this.board.moveSnakes();
     expect(this.board.checkSnakes()).toEqual(false);
     expect(this.board.keepRendering).toEqual(false);
@@ -66,7 +66,7 @@ describe("Board", function () {
   it("realizes when a snake has eaten another snake", function () {
     this.board.snake1.segments = [[0,0], [0,1], [0,2]];
     this.board.snake2.segments = [[1,0], [1,1], [1,2]];
-    this.board.snake2.dir = "N";
+    this.board.snake2._dir = "N";
     this.board.moveSnakes();
     expect(this.board.checkSnakes()).toEqual(false);
     expect(this.board.keepRendering).toEqual(false);
@@ -78,7 +78,7 @@ describe("Board", function () {
   it("returns the high score and correct winner ", function () {
     this.board.snake1.segments = [[0,0], [0,1], [0,2]];
     this.board.snake2.segments = [[1,0], [1,1], [1,2]];
-    this.board.snake2.dir = "N";
+    this.board.snake2._dir = "N";
     this.board.snake2.score = 30;
     this.board.snake1.score = 10
     this.board.moveSnakes();
