@@ -80,7 +80,7 @@ describe("Board", function () {
     this.board.snake2._segments = [[1,0], [1,1], [1,2]];
     this.board.snake2._dir = "N";
     this.board.snake2.score = 30;
-    this.board.snake1.score = 10
+    this.board.snake1.score = 10;
     this.board.moveSnakes();
     this.board.checkSnakes();
     expect(this.board.winner()).toEqual("Black Snake");
