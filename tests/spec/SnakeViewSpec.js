@@ -29,12 +29,12 @@ describe("Snake-View", function () {
 
 
   it("shows the correct winner and high score", function () {
-    view.board.snake1.score = 50;
-    view.board.snake2.score = 0;
+    view.board.snake1._score = 50;
+    view.board.snake2._score = 0;
     view.stopPlaying();
-    var winningScore = $(".end-screen .winning-score")[0].innerHTML
+    var winningScore = $(".end-screen .winning-score")[0].innerHTML;
     expect($(".end-screen .winner")[0]).toHaveText("The winner is Black Snake");
-    expect(winningScore).toEqual("The high score is 50")
+    expect(winningScore).toEqual("The high score is 50");
   });
 
 })

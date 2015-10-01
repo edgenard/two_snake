@@ -9,7 +9,7 @@ describe("Snake", function () {
     expect(this.snake.getSegments()).toEqual([[0,0], [0, 1]]);
     expect(this.snake.getColor()).toBe("black");
     expect(this.snake._dir).toEqual("E");
-    expect(this.snake.score).toEqual(0);
+    expect(this.snake._score).toEqual(0);
   });
 
   it("moves East",function(){
