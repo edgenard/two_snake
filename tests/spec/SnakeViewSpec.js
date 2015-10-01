@@ -20,8 +20,8 @@ describe("Snake-View", function () {
 
 
   it("updates the score correctly on the page", function () {
-    view.board.snake1.score = 50;
-    view.board.snake2.score = 60;
+    view.board.snake1._score = 50;
+    view.board.snake2._score = 60;
     view.step();
     expect($(".snake-score-1 h3")[0]).toHaveText("50");
     expect($(".snake-score-2 h3")[0]).toHaveText("60");
