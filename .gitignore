@@ -7,4 +7,6 @@ node_modules/karma/node_modules/socket.io/node_modules/engine.io/node_modules/ws
 node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/bufferutil/build/
 node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/utf-8-validate/build/
 
+node_modules/karma-jasmine-jquery/lib/jasmine.js
+
 .DS_Store
