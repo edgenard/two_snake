@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/edgenard/two_snake/issues"
   },
-  "homepage": "https://github.com/edgenard/two_snake#readme"
+  "homepage": "https://github.com/edgenard/two_snake#readme",
+  "devDependencies": {
+    "jake": "^8.0.12"
+  }
 }
