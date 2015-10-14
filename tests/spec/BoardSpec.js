@@ -8,12 +8,12 @@ describe("Board", function () {
   });
 
   beforeEach(function () {
-    jasmine.getFixtures().fixturesPath = "../tests/fixtures/";
+    jasmine.getFixtures().fixturesPath = 'base/tests/fixtures/';
     loadFixtures("board.html");
     this.board = new Snake.Board(2);
   });
   // Firefox adds the whole background vallues instead of the just the color
-  xit("renders the snake correctly", function () {
+  it("renders the snake correctly", function () {
     this.board.snake1._segments = [[0,18], [0,19]];
 
     this.board.render($(".snake-board"));
@@ -26,19 +26,19 @@ describe("Board", function () {
     expect(cellSnake).toHaveCss({background: "black"});
   });
 
-  xit("renders the apple correctly", function () {
+  it("renders the apple correctly", function () {
     this.board.render($(".snake-board"));
     var appleRow = this.board.apple[0] + 1;
     var appleCol = this.board.apple[0] + 1;
     var ulApple =  "ul:nth-of-type(" + appleRow + ")";
     var liApple = "li:nth-of-type(" + appleCol + ")";
     var cellApple = $(ulApple + " " + liApple)[0].outerHTML;
-    expect(cellApple).toHaveCss({background: "red"})
+    expect(cellApple).toHaveCss({background: "red"});
   });
 
 
   it("keep snakes visible", function () {
-    this.board.snake1._segments = [[0,18], [0,19]]
+    this.board.snake1._segments = [[0,18], [0,19]];
     this.board.moveSnakes();
     this.board.keepSnakesVisible();
     expect(this.board.snake1._segments).toEqual([[0,19], [0,0]]);
@@ -49,7 +49,7 @@ describe("Board", function () {
       this.board.snake1.addSegment();
       this.board.snake2.addSegment();
       this.board.setApple();
-      expect(this.board.snake1._segments).not.toEqual(jasmine.arrayContaining(this.board.apple))
+      expect(this.board.snake1._segments).not.toEqual(jasmine.arrayContaining(this.board.apple));
     }
 
 
