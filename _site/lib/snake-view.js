@@ -4,7 +4,7 @@
     window.Snake = {};
   }
 
-  var view = Snake.view = function($el, players) {
+  var view = Snake.View = function($el, players) {
     this.$el = $el;
     this.board = new Snake.Board(players);
     this.$el.focus();
@@ -18,8 +18,8 @@
 
 
   view.prototype.step = function () {
-    $(".snake-score-1 h3").html(this.board.snake1.score);
-    this.board.snake2 && $(".snake-score-2 h3").html(this.board.snake2.score);
+    $(".snake-score-1 h3").html(this.board.snake1.getScore());
+    this.board.snake2 && $(".snake-score-2 h3").html(this.board.snake2.getScore());
     this.$el.html(this.board.render(this.$el));
     !this.board.keepRendering && this.stopPlaying();
 
@@ -28,8 +28,8 @@
   view.prototype.stopPlaying = function () {
     clearInterval(this.keepPlaying);
     clearInterval(this.appleMove);
-    $(".snake-score-1 h3").empty().html(this.board.snake1.score);
-    this.board.snake2 && $(".snake-score-2 h3").empty().html(this.board.snake2.score);
+    $(".snake-score-1 h3").empty().html(this.board.snake1.getScore());
+    this.board.snake2 && $(".snake-score-2 h3").empty().html(this.board.snake2.getScore());
     this.$el.find(".end-screen").css("display", "flex");
     var score = this.board.highScore();
     var winner = this.board.winner();

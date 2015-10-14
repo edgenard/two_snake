@@ -522,7 +522,7 @@
     </section>
   </main>
   <footer>
-  <a href="#">See the code on Github</a>
+  <a href="https://github.com/edgenard/two_snake">See the code on Github</a>
 
 
     <!-- <a href="#">Read about the refactoring</a> -->
@@ -545,12 +545,12 @@
       $(".play-1").on("click", function(){
         $(".start-screen").css("display", "none");
         $(".end-screen").css("display", "none");
-        new Snake.view($(".snake-board"), 1)
+        new Snake.View($(".snake-board"), 1)
       });
       $(".play-2").click(function(){
         $(".start-screen").css("display", "none");
         $(".end-screen").css("display", "none");
-        new Snake.view($(".snake-board"), 2);
+        new Snake.View($(".snake-board"), 2);
       })
 
     })

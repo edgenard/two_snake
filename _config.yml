@@ -1,1 +1,2 @@
 baseurl: /two_snake
+exclude: ["tests/", "node_modules/"]

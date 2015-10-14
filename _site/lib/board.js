@@ -39,10 +39,10 @@
       var ul = "ul:nth-of-type(" + (cell[0] + 1) + ")";
       var li = "li:nth-of-type(" +(cell[1] + 1) + ")";
       var $cell = $el.find(ul + " " + li);
-      if (that._include(that.snake1.segments, cell)) {
-        $cell.css("background", that.snake1.color);
-      } else if(that.players > 1 && that._include(that.snake2.segments, cell)) {
-        $cell.css("background", that.snake2.color);
+      if (that._include(that.snake1.getSegments(), cell)) {
+        $cell.css("background", that.snake1.getColor());
+      } else if(that.players > 1 && that._include(that.snake2.getSegments(), cell)) {
+        $cell.css("background", that.snake2.getColor());
       } else if(that._include([that.apple], cell)) {
         $cell.css("background", "red");
       } else {
@@ -76,10 +76,10 @@
   board.prototype._getSnakeHeads = function () {
     var heads = [];
     if (this.players > 1) {
-      var head2 = this.snake2.segments[this.snake2.segments.length - 1];
+      var head2 = this.snake2.getSegments()[this.snake2.getSegments().length - 1];
       heads.push(head2);
     }
-    var head1 = this.snake1.segments[this.snake1.segments.length - 1];
+    var head1 = this.snake1.getSegments()[this.snake1.getSegments().length - 1];
     heads.push(head1);
     return heads;
   };
@@ -107,52 +107,52 @@
       do {
         this.apple[0] = Math.floor(Math.random() * 20);
         this.apple[1] = Math.floor(Math.random() * 20);
-      } while (this._include(this.snake2.segments, this.apple) || this._include(this.snake1.segments, this.apple) );
+      } while (this._include(this.snake2.getSegments(), this.apple) || this._include(this.snake1.getSegments(), this.apple) );
     } else {
       do {
         this.apple[0] = Math.floor(Math.random() * 20);
         this.apple[1] = Math.floor(Math.random() * 20);
-      } while (this._include(this.snake1.segments, this.apple));
+      } while (this._include(this.snake1.getSegments(), this.apple));
     }
 
   };
 
   board.prototype.growSnakes = function () {
     if (this.players > 1) {
-      var head2 = this.snake2.segments[this.snake2.segments.length - 1];
+      var head2 = this.snake2.getSegments()[this.snake2.getSegments().length - 1];
       if (this._include([head2], this.apple )) {
         this.apple = [21, 21];
         this.snake2.addSegment();
-        this.snake2.score += 10;
+        this.snake2.setScore(10);
       }
     }
-    var head1 = this.snake1.segments[this.snake1.segments.length - 1];
+    var head1 = this.snake1.getSegments()[this.snake1.getSegments().length - 1];
     if (this._include([head1], this.apple )) {
       this.apple = [21, 21];
       this.snake1.addSegment();
-      this.snake1.score += 10;
+      this.snake1.setScore(10);
     }
 
   };
 
   board.prototype.checkSnakes = function () {
-    var head1 = this.snake1.head();
-    var snakeSansHead1 = this.snake1.segments.slice(0, this.snake1.segments.length - 2);
+    var head1 = this.snake1.headDup();
+    var snakeSansHead1 = this.snake1.getSegments().slice(0, this.snake1.getSegments().length - 2);
 
     if (this.players > 1) {
-      var head2 = this.snake2.head();
-      var snakeSansHead2 = this.snake2.segments.slice(0, this.snake2.segments.length - 2);
+      var head2 = this.snake2.headDup();
+      var snakeSansHead2 = this.snake2.getSegments().slice(0, this.snake2.getSegments().length - 2);
       if (this._include(snakeSansHead1, head1) || this._include(snakeSansHead2, head2)  ) {//snakes eat themselves.
 
           this.keepRendering = false;
           return false;
-      } else if (this._include(this.snake1.segments, head2)) {//snake2 eats snake1
-        this.snake2.score = 0;
+      } else if (this._include(this.snake1.getSegments(), head2)) {//snake2 eats snake1
+        this.snake2.zeroScore();
         this.keepRendering = false;
         return false;
 
-      } else if (this._include(this.snake2.segments, head1)){//snake1 eats snake2
-        this.snake1.score = 0;
+      } else if (this._include(this.snake2.getSegments(), head1)){//snake1 eats snake2
+        this.snake1.zeroScore();
 
         this.keepRendering = false;
         return false;
@@ -180,9 +180,9 @@
   board.prototype.highScore = function () {
     var score2, score1, highScore;
     if (this.players > 1) {
-      score2 = this.snake2.score;
+      score2 = this.snake2.getScore();
     }
-    score1 = this.snake1.score;
+    score1 = this.snake1.getScore();
     if (score2) {
       highScore = score1 > score2 ? score1 : score2;
     } else{
@@ -195,7 +195,7 @@
   board.prototype.winner = function () {
     var winner;
     if (this.players > 1) {
-      winner = this.snake1.score > this.snake2.score ?  "Black Snake" : "Green Snake";
+      winner = this.snake1.getScore() > this.snake2.getScore() ?  "Black Snake" : "Green Snake";
     } else {
       return;
     }
