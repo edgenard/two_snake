@@ -7,8 +7,10 @@
   var jshint = require("simplebuild-jshint");
   var karma = require("simplebuild-karma");
 
+
+
   desc("Default Talks");
-  task("default",["check-node"], function () {
+  task("default",["check-node", "lint"], function () {
 
     console.log("\n\nBuild OK");
   });
@@ -71,6 +73,20 @@ function lintGlobals() {
     chai       : false,
   };
 }
+
+
+
+// Testing
+
+var KARMA_CONFIG = "karma.conf.js";
+
+desc("Start the Karma server(run this first)");
+task("karma", function () {
+  console.log("Starting the Karma server:");
+  karma.start({
+    configFile: KARMA_CONFIG
+  }, complete, fail);
+}, {async: true});
 
 
 }());
