@@ -26,67 +26,75 @@
   if(semver.neq(expectedVersion, actualVersion)) {
     fail("Incorrect Node Version. Expected: " + expectedVersion  + " Actual: " + actualVersion);
   }
-});
+  });
 
 
-desc("Run JShint");
-task("lint", function () {
-  process.stdout.write("Linting JavaScript: ");
+  desc("Run JShint");
+  task("lint", function () {
+    process.stdout.write("Linting JavaScript: ");
 
-  jshint.checkFiles({
-    files: ["Jakefile.js", "src/**/*.js"],
-    options: lintOptions(),
+    jshint.checkFiles({
+      files: ["Jakefile.js", "src/**/*.js"],
+      options: lintOptions(),
 
-    globals: lintGlobals()
+      globals: lintGlobals()
 
-  }, complete, fail);
+    }, complete, fail);
 
-}, {async: true});
-
-
-function lintOptions() {
-  return {
-    bitwise  : true,
-    eqeqeq   : true,
-    forin    : true,
-    freeze   : true,
-    latedef  : "nofunc",
-    noarg    : true,
-    nocomma  : true,
-    nonbsp   : true,
-    nonew    : true,
-    strict   : true,
-    undef    : true,
-    node     : true,
-    browser  : true,
-  };
-}
-
-function lintGlobals() {
-  return {
-    describe   : false,
-    it         : false,
-    after      : false,
-    before     : false,
-    beforeEach : false,
-    afterEach  : false,
-    chai       : false,
-  };
-}
+  }, {async: true});
 
 
+  function lintOptions() {
+    return {
+      bitwise  : true,
+      eqeqeq   : true,
+      forin    : true,
+      freeze   : true,
+      latedef  : "nofunc",
+      noarg    : true,
+      nocomma  : true,
+      nonbsp   : true,
+      nonew    : true,
+      strict   : true,
+      undef    : true,
+      node     : true,
+      browser  : true,
+    };
+  }
 
-// Testing
+  function lintGlobals() {
+    return {
+      describe   : false,
+      it         : false,
+      after      : false,
+      before     : false,
+      beforeEach : false,
+      afterEach  : false,
+      chai       : false,
+    };
+  }
 
-var KARMA_CONFIG = "karma.conf.js";
 
-desc("Start the Karma server(run this first)");
-task("karma", function () {
-  console.log("Starting the Karma server:");
-  karma.start({
-    configFile: KARMA_CONFIG
-  }, complete, fail);
-}, {async: true});
 
+ // Testing
+
+  var KARMA_CONFIG = "karma.conf.js";
+
+  desc("Start the Karma server(run this first)");
+  task("karma", function () {
+    console.log("Starting the Karma server:");
+    karma.start({
+      configFile: KARMA_CONFIG
+    }, complete, fail);
+  }, {async: true});
+
+  desc("Run Tests");
+  task("tests", function () {
+    console.log("Running JS tests: ");
+    karma.run({
+      configFile: KARMA_CONFIG,
+      strict: !process.env.loose
+    }, complete, fail);
+  }, {async: true});
 
 }());
