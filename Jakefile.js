@@ -5,7 +5,7 @@
 
   var semver = require("semver");
   var jshint = require("simplebuild-jshint");
-
+  var karma = require("simplebuild-karma");
 
   desc("Default Talks");
   task("default",["check-node"], function () {

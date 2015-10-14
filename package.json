@@ -5,7 +5,6 @@
   "engines": {
     "node": "0.12.5"
   },
-  "main": "snakeGame.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edgenard/two_snake.git"
