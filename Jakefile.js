@@ -33,7 +33,7 @@
     process.stdout.write("Linting JavaScript: ");
 
     jshint.checkFiles({
-      files: ["Jakefile.js", "lib/*.js"],
+      files: ["Jakefile.js", "lib/*.js", "tests/spec/*.js"],
       options: lintOptions(),
 
       globals: lintGlobals()
@@ -66,6 +66,7 @@
     return {
       describe   : false,
       it         : false,
+      xit        : false,
       after      : false,
       before     : false,
       beforeEach : false,
@@ -73,6 +74,7 @@
       jasmine    : false,
       Snake      : false,
       $          : false,
+      expect     : false,
 
     };
   }

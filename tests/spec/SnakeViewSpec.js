@@ -1,4 +1,7 @@
+/* globals loadFixtures: false, spyOnEvent: false */
+
 describe("Snake-View", function () {
+  "use strict";
   var view;
   beforeEach(function () {
     jasmine.getFixtures().fixturesPath = 'base/tests/fixtures';
@@ -13,6 +16,7 @@ describe("Snake-View", function () {
     expect(view.board.players).toEqual(2);
   });
 
+  //NOTE: The focus actually happens in Chrome and Firefox but the test only passes in Safari.
   xit("focuses on the board when initialized", function () {
     var spyFocus = spyOnEvent(".snake-board", "focus");
 

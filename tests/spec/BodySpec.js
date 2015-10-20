@@ -1,4 +1,5 @@
 describe("Body", function () {
+  "use strict";
   it("creates a body with the right attributes", function () {
     var body = new Snake.Body({
       segments: [[0,0], [0,1]],
@@ -6,7 +7,7 @@ describe("Body", function () {
       dir: "E"
     });
 
-    expect(body.getSegments()).toEqual([[0,0], [0,1]]);
+    expect(body.position()).toEqual([[0,0], [0,1]]);
     expect(body.getColor()).toBe("black");
     expect(body.getDir()).toBe("E");
   });
@@ -23,7 +24,7 @@ describe("Body", function () {
 
     this.body.grow();
 
-    expect(this.body.getSegments()).toEqual([[0,0], [0,1], [0,2]]);
+    expect(this.body.position()).toEqual([[0,0], [0,1], [0,2]]);
 
   });
 
@@ -32,14 +33,14 @@ describe("Body", function () {
 
     this.body.grow();
 
-    expect(this.body.getSegments()).toEqual([[0,0], [0,1], [1,1]]);
+    expect(this.body.position()).toEqual([[0,0], [0,1], [1,1]]);
   });
 
   it("moves east", function () {
 
     this.body.move();
 
-    expect(this.body.getSegments()).toEqual([[0,1],[0,2]]);
+    expect(this.body.position()).toEqual([[0,1],[0,2]]);
   });
 
   it("moves west", function () {
@@ -47,7 +48,7 @@ describe("Body", function () {
 
     this.body.move();
 
-    expect(this.body.getSegments()).toEqual([[0,1], [0,0]]);
+    expect(this.body.position()).toEqual([[0,1], [0,0]]);
   });
 
   it("moves south", function () {
@@ -55,7 +56,7 @@ describe("Body", function () {
 
     this.body.move();
 
-    expect(this.body.getSegments()).toEqual([[0, 1], [1,1]]);
+    expect(this.body.position()).toEqual([[0, 1], [1,1]]);
   });
 
   it("moves north", function () {
@@ -63,7 +64,7 @@ describe("Body", function () {
 
     this.body.move();
 
-    expect(this.body.getSegments()).toEqual([[0,1], [-1,1]]);
+    expect(this.body.position()).toEqual([[0,1], [-1,1]]);
   });
 
 
