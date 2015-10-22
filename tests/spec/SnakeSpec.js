@@ -5,11 +5,17 @@ describe("Snake", function () {
                                  shortcuts: ["up", "down", "left", "right" ]});
   });
 
-  it("starts off with the given options ", function () {
-    expect(this.snake.getSegments()).toEqual([[0,0], [0, 1]]);
-    expect(this.snake.getColor()).toBe("black");
-    expect(this.snake._dir).toEqual("E");
-    expect(this.snake._score).toEqual(0);
+  it("creates a new body", function () {
+    var body = this.snake._body;
+
+    var result =  Snake.Body.prototype.isPrototypeOf(body);
+
+    expect(result).toBeTruthy();
+  });
+
+  it("has the given color ", function () {
+
+    expect(this.snake.getColor()).toEqual("black");
   });
 
   it("moves East",function(){
