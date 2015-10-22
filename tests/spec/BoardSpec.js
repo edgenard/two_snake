@@ -1,6 +1,5 @@
-/* globals loadFixtures: false, */
 describe("Board", function () {
-  "use strict";
+
   it("initialized with correct number of players", function () {
     var board1 = new Snake.Board(1);
     expect(board1.players).toEqual(1);
@@ -13,8 +12,8 @@ describe("Board", function () {
     loadFixtures("board.html");
     this.board = new Snake.Board(2);
   });
-  // NOTE: The next two tests pass on Chrome and Safari and the functionality works in Firefox, it just that the Firefox does something weird with the CSS that other browsers do not that make it so that the test does not pass.
-  xit("renders the snake correctly", function () {
+  // Firefox adds the whole background vallues instead of the just the color
+  it("renders the snake correctly", function () {
     this.board.snake1._segments = [[0,18], [0,19]];
 
     this.board.render($(".snake-board"));
@@ -27,7 +26,7 @@ describe("Board", function () {
     expect(cellSnake).toHaveCss({"background-color": "black"});
   });
 
-  xit("renders the apple correctly", function () {
+  it("renders the apple correctly", function () {
     this.board.render($(".snake-board"));
     var appleRow = this.board.apple[0] + 1;
     var appleCol = this.board.apple[0] + 1;
