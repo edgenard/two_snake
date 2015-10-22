@@ -39,40 +39,35 @@ describe("Board", function () {
 
 
   it("keep snakes visible", function () {
-    this.board.snake1.turn("_", {shortcut: "up"});
+    this.board.snake1._segments = [[0,18], [0,19]];
     this.board.moveSnakes();
     this.board.keepSnakesVisible();
-    expect(this.board.snake1.position()).toEqual([[0,1], [19,1]]);
+    expect(this.board.snake1._segments).toEqual([[0,19], [0,0]]);
   });
 
   it("sets the apple where the snakes are not", function () {
     for (var i = 0; i < 18; i++) {
-      this.board.snake1.grow();
-      this.board.snake2.grow();
-
+      this.board.snake1.addSegment();
+      this.board.snake2.addSegment();
       this.board.setApple();
-
-      expect(this.board.snake1.position()).not.toEqual(jasmine.arrayContaining(this.board.apple));
-
-      expect(this.board.snake2.position()).not.toEqual(jasmine.arrayContaining(this.board.apple));
-
+      expect(this.board.snake1._segments).not.toEqual(jasmine.arrayContaining(this.board.apple));
     }
 
 
   });
 
   it("realizes when a snake has eaten itself", function () {
-    this.board.snake1._body._segments = [[0, 2], [0, 3], [0,4], [1,4], [1, 3]];
-    this.board.snake1.turn("_", {shortcut: "up"});
+    this.board.snake1._segments = [[0, 2], [0, 3], [0,4], [1,4], [1, 3]];
+    this.board.snake1._dir = "N";
     this.board.moveSnakes();
     expect(this.board.checkSnakes()).toEqual(false);
     expect(this.board.keepRendering).toEqual(false);
   });
 
   it("realizes when a snake has eaten another snake", function () {
-    this.board.snake1._body._segments = [[0,0], [0,1], [0,2]];
-    this.board.snake2._body._segments = [[1,0], [1,1], [1,2]];
-    this.board.snake2.turn("_", {shortcut: "w"});
+    this.board.snake1._segments = [[0,0], [0,1], [0,2]];
+    this.board.snake2._segments = [[1,0], [1,1], [1,2]];
+    this.board.snake2._dir = "N";
     this.board.moveSnakes();
     expect(this.board.checkSnakes()).toEqual(false);
     expect(this.board.keepRendering).toEqual(false);
@@ -82,9 +77,9 @@ describe("Board", function () {
 
 
   it("returns the high score and correct winner ", function () {
-    this.board.snake1._body._segments = [[0,0], [0,1], [0,2]];
-    this.board.snake2._body._segments = [[1,0], [1,1], [1,2]];
-    this.board.snake2.turn("_", {shortcut: "w"});
+    this.board.snake1._segments = [[0,0], [0,1], [0,2]];
+    this.board.snake2._segments = [[1,0], [1,1], [1,2]];
+    this.board.snake2._dir = "N";
     this.board.snake2._score = 30;
     this.board.snake1._score = 10;
     this.board.moveSnakes();
