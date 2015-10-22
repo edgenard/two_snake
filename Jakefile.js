@@ -1,4 +1,5 @@
-/* globals complete: fasle, fail: false, desc: false, task: false */
+/* globals desc: false, task: false, complete: false, fail: false, jake:false */
+
 (function() {
   'use strict';
 
@@ -33,7 +34,7 @@
     process.stdout.write("Linting JavaScript: ");
 
     jshint.checkFiles({
-      files: ["Jakefile.js", "lib/*.js"],
+      files: ["Jakefile.js", "src/**/*.js"],
       options: lintOptions(),
 
       globals: lintGlobals()
@@ -58,7 +59,6 @@
       undef    : true,
       node     : true,
       browser  : true,
-      expr     : true
     };
   }
 
@@ -70,10 +70,7 @@
       before     : false,
       beforeEach : false,
       afterEach  : false,
-      jasmine    : false,
-      Snake      : false,
-      $          : false,
-
+      chai       : false,
     };
   }
 
