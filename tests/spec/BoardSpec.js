@@ -23,7 +23,7 @@ describe("Board", function () {
     var ulSnake = "ul:nth-of-type(" + snakeRow + ")";
     var liSnake = "li:nth-of-type(" + snakeCol + ")";
     var cellSnake = $(ulSnake + " " + liSnake)[0].outerHTML;
-    expect(cellSnake).toHaveCss({"background-color": "black"});
+    expect(cellSnake).toHaveCss({background: "black"});
   });
 
   it("renders the apple correctly", function () {
@@ -33,7 +33,7 @@ describe("Board", function () {
     var ulApple =  "ul:nth-of-type(" + appleRow + ")";
     var liApple = "li:nth-of-type(" + appleCol + ")";
     var cellApple = $(ulApple + " " + liApple)[0].outerHTML;
-    expect(cellApple).toHaveCss({"background-color": "red"});
+    expect(cellApple).toHaveCss({background: "red"});
   });
 
 

@@ -66,49 +66,4 @@ describe("Body", function () {
     expect(this.body.getSegments()).toEqual([[0,1], [-1,1]]);
   });
 
-
-  it("does not turn back on itself", function () {
-    this.body._dir = "E";
-
-    this.body.turn("left");
-
-    expect(this.body._dir).toEqual("E");
-  });
-
-  it("turns South", function () {
-    this.body.turn("down");
-
-    expect(this.body._dir).toEqual("S");
-  });
-
-
-  it("turns North", function () {
-    this.body.turn("up");
-
-    expect(this.body._dir).toEqual("N");
-  });
-
-
-
-  it("turns West", function () {
-    this.body._dir = "S";
-
-    this.body.turn("left");
-
-    expect(this.body._dir).toEqual("W");
-  });
-
-
-  it("turns East", function () {
-    this.body._dir = "N";
-
-    this.body.turn("right");
-
-    expect(this.body._dir).toEqual("E");
-  });
-
-
-
-
-
 });

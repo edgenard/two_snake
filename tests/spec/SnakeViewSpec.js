@@ -14,11 +14,9 @@ describe("Snake-View", function () {
   });
 
   xit("focuses on the board when initialized", function () {
-    var spyFocus = spyOnEvent(".snake-board", "focus");
-
-    var view = new Snake.View($(".snake-board"), 1);
-
-    expect(spyFocus).toHaveBeenTriggered();
+     var spyFocus = spyOnEvent(".snake-board", "focus");
+     var view = new Snake.View($(".snake-board"), 1);
+     expect("focus").toHaveBeenTriggeredOn(".snake-board");
   });
 
 
