@@ -18,29 +18,46 @@ describe("Snake", function () {
     expect(this.snake.getColor()).toEqual("black");
   });
 
+  it("starts off pointing East", function () {
+
+    expect(this.snake.getDir()).toEqual("E");
+  });
+
+  it ("starts off in the given position", function () {
+
+    expect(this.snake.position()).toEqual([[0,0], [0,1]]);
+  });
+
   it("moves East",function(){
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0, 1],[0,2]]);
+
+    expect(this.snake.position()).toEqual([[0, 1],[0,2]]);
 
   });
 
   it("moves South", function () {
-    this.snake._dir = "S";
+    this.snake._body._dir = "S";
+
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0, 1], [1,1]]);
+
+    expect(this.snake.position()).toEqual([[0, 1], [1,1]]);
   });
 
 
   it("moves North", function () {
-    this.snake._dir = "N";
+    this.snake._body._dir = "N";
+
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0,1], [-1,1]]);
+
+    expect(this.snake.position()).toEqual([[0,1], [-1,1]]);
   });
 
   it("moves West", function() {
-    this.snake._dir = "W";
+    this.snake._body._dir = "W";
+
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0,1], [0,0]]);
+
+    expect(this.snake.position()).toEqual([[0,1], [0,0]]);
   });
 
   describe("turning", function () {
@@ -49,19 +66,25 @@ describe("Snake", function () {
     it("does not turn back on itself", function () {
       handler.shortcut = "left";
       this.snake._dir = "E";
+
       this.snake.turn("", handler);
+
       expect(this.snake._dir).toEqual("E");
     });
 
     it("turns South when down is pressed", function () {
       handler.shortcut = "down";
+
       this.snake.turn("", handler);
+
       expect(this.snake._dir).toEqual("S");
     });
 
-    it("turns South when d is pressed", function () {
+    it("turns South when s is pressed", function () {
       handler.shortcut = "s";
+
       this.snake.turn("", handler);
+
       expect(this.snake._dir).toEqual("S");
     });
 
@@ -82,20 +105,26 @@ describe("Snake", function () {
     it("turns West when left is pressed", function () {
       this.snake._dir = "S";
       handler.shortcut = "left";
+
       this.snake.turn("", handler);
+
       expect(this.snake._dir).toEqual("W");
     });
 
     it("turns West when a is pressed", function () {
       this.snake._dir = "S";
       handler.shortcut = "a";
+
       this.snake.turn("", handler);
+
       expect(this.snake._dir).toEqual("W");
     });
 
     it("turns East when right is pressed", function () {
       handler.shortcut = "right";
+
       this.snake.turn("", handler);
+      
       expect(this.snake._dir).toEqual("E");
     });
 
@@ -104,8 +133,9 @@ describe("Snake", function () {
 
   describe("growing snake", function () {
     it("grows", function () {
-      this.snake.addSegment();
-      expect(this.snake.getSegments()).toEqual([[0,0], [0, 1], [0, 2]]);
+      this.snake.grow();
+
+      expect(this.snake.position()).toEqual([[0,0], [0, 1], [0, 2]]);
     });
   });
 

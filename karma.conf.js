@@ -19,7 +19,8 @@ module.exports = function(config) {
       'assets/*.js',
       'snake.css',
       'lib/*.js',
-      'tests/spec/*.js'
+      'tests/spec/BodySpec.js',
+      'tests/spec/SnakeSpec.js'
 
     ],
 
