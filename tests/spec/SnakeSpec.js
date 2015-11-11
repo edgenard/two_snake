@@ -124,7 +124,7 @@ describe("Snake", function () {
       handler.shortcut = "right";
 
       this.snake.turn("", handler);
-      
+
       expect(this.snake._dir).toEqual("E");
     });
 
@@ -138,5 +138,34 @@ describe("Snake", function () {
       expect(this.snake.position()).toEqual([[0,0], [0, 1], [0, 2]]);
     });
   });
+
+  describe("body parts", function () {
+    it("returns the head", function () {
+      var head = this.snake.head();
+
+      expect(head).toEqual([0,1]);
+    });
+
+    it("returns a duplicate of the head", function () {
+      var headDup = this.snake.headDup();
+      var head = this.snake.head();
+
+      headDup[1] = 2;
+
+      expect(headDup).toEqual([0, 2]);
+      expect(head).toEqual([0,1]);
+    });
+
+    fit ("returns the body without the head", function () {
+      this.snake.grow();
+
+      var body = this.snake.bodyNoHead();
+
+      expect(body).toEqual([[0,0], [0,1]]);
+    });
+
+  });
+
+
 
 });

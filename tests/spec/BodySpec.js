@@ -35,4 +35,12 @@ describe("Body", function () {
     expect(this.body.position()).toEqual([[0,0], [0,1], [0,2]]);
   });
 
+  it("returns the head" ,function () {
+    this.body.grow();
+
+    var result = this.body.head();
+
+    expect(result).toEqual([0,2]);
+  });
+
 });
