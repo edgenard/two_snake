@@ -66,7 +66,7 @@ describe("Board", function () {
   it("realizes when a snake has eaten another snake", function () {
     this.board.snake1._body._segments = [[0,0], [0,1], [0,2]];
     this.board.snake2._body._segments = [[1,0], [1,1], [1,2]];
-    this.board.snake2.turn("", {shortcut: "up"});
+    this.board.snake2.turn("", {shortcut: "w"});
 
     this.board.moveSnakes();
 
@@ -81,8 +81,10 @@ describe("Board", function () {
     this.board.snake2.turn("", {shortcut: "up"});
     this.board.snake2.setScore(30);
     this.board.snake1.setScore(10);
+
     this.board.moveSnakes();
     this.board.checkSnakes();
+
     expect(this.board.winner()).toEqual("Black Snake");
     expect(this.board.highScore()).toEqual(10);
   });

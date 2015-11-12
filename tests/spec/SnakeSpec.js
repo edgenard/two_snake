@@ -20,7 +20,7 @@ describe("Snake", function () {
 
   it("starts off pointing East", function () {
 
-    expect(this.snake.getDir()).toEqual("E");
+    expect(this.snake.direction()).toEqual("E");
   });
 
   it ("starts off in the given position", function () {
@@ -65,11 +65,11 @@ describe("Snake", function () {
 
     it("does not turn back on itself", function () {
       handler.shortcut = "left";
-      this.snake._dir = "E";
+      this.snake._body._dir = "E";
 
       this.snake.turn("", handler);
 
-      expect(this.snake._dir).toEqual("E");
+      expect(this.snake.direction()).toEqual("E");
     });
 
     it("turns South when down is pressed", function () {
@@ -77,7 +77,7 @@ describe("Snake", function () {
 
       this.snake.turn("", handler);
 
-      expect(this.snake._dir).toEqual("S");
+      expect(this.snake.direction()).toEqual("S");
     });
 
     it("turns South when s is pressed", function () {
@@ -85,39 +85,39 @@ describe("Snake", function () {
 
       this.snake.turn("", handler);
 
-      expect(this.snake._dir).toEqual("S");
+      expect(this.snake.direction()).toEqual("S");
     });
 
     it("turns North when up is pressed", function () {
       handler.shortcut = "up";
       this.snake.turn("", handler);
-      expect(this.snake._dir).toEqual("N");
+      expect(this.snake.direction()).toEqual("N");
     });
 
     it("turns North when w is pressed", function () {
       handler.shortcut = "w";
       this.snake.turn("", handler);
-      expect(this.snake._dir).toEqual("N");
+      expect(this.snake.direction()).toEqual("N");
     });
 
 
 
     it("turns West when left is pressed", function () {
-      this.snake._dir = "S";
+      this.snake._body._dir = "S";
       handler.shortcut = "left";
 
       this.snake.turn("", handler);
 
-      expect(this.snake._dir).toEqual("W");
+      expect(this.snake.direction()).toEqual("W");
     });
 
     it("turns West when a is pressed", function () {
-      this.snake._dir = "S";
+      this.snake._body._dir = "S";
       handler.shortcut = "a";
 
       this.snake.turn("", handler);
 
-      expect(this.snake._dir).toEqual("W");
+      expect(this.snake.direction()).toEqual("W");
     });
 
     it("turns East when right is pressed", function () {
@@ -125,7 +125,7 @@ describe("Snake", function () {
 
       this.snake.turn("", handler);
 
-      expect(this.snake._dir).toEqual("E");
+      expect(this.snake.direction()).toEqual("E");
     });
 
 
@@ -156,7 +156,7 @@ describe("Snake", function () {
       expect(head).toEqual([0,1]);
     });
 
-    fit ("returns the body without the head", function () {
+    it ("returns the body without the head", function () {
       this.snake.grow();
 
       var body = this.snake.bodyNoHead();
