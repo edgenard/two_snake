@@ -11,3 +11,4 @@ node_modules/karma-jasmine-jquery/lib/jasmine.js
 
 .DS_Store
 notes.md
+.idea
