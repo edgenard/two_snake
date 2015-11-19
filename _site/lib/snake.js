@@ -94,11 +94,11 @@
   };
 
   snake.prototype.addSegment = function () {
-    var newHead = this.getNewHead();
+    var newHead = this._getNewHead();
     this._segments.push(newHead);
   };
 
-  snake.prototype.getNewHead = function() {
+  snake.prototype._getNewHead = function() {
     var newHead = this.headDup();
     if (this._dir === "S") {
       newHead[0] = newHead[0] + 1;

@@ -59,6 +59,7 @@ describe("Board", function () {
     this.board.snake1._segments = [[0, 2], [0, 3], [0,4], [1,4], [1, 3]];
     this.board.snake1._dir = "N";
     this.board.moveSnakes();
+
     expect(this.board.checkSnakes()).toEqual(false);
     expect(this.board.keepRendering).toEqual(false);
   });
