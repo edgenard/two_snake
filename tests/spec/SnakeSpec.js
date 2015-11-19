@@ -6,7 +6,7 @@ describe("Snake", function () {
   });
 
   it("starts off with the given options ", function () {
-    expect(this.snake.getSegments()).toEqual([[0,0], [0, 1]]);
+    expect(this.snake.position()).toEqual([[0,0], [0, 1]]);
     expect(this.snake.getColor()).toBe("black");
     expect(this.snake._dir).toEqual("E");
     expect(this.snake._score).toEqual(0);
@@ -14,27 +14,27 @@ describe("Snake", function () {
 
   it("moves East",function(){
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0, 1],[0,2]]);
+    expect(this.snake.position()).toEqual([[0, 1],[0,2]]);
 
   });
 
   it("moves South", function () {
     this.snake._dir = "S";
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0, 1], [1,1]]);
+    expect(this.snake.position()).toEqual([[0, 1], [1,1]]);
   });
 
 
   it("moves North", function () {
     this.snake._dir = "N";
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0,1], [-1,1]]);
+    expect(this.snake.position()).toEqual([[0,1], [-1,1]]);
   });
 
   it("moves West", function() {
     this.snake._dir = "W";
     this.snake.move();
-    expect(this.snake.getSegments()).toEqual([[0,1], [0,0]]);
+    expect(this.snake.position()).toEqual([[0,1], [0,0]]);
   });
 
   describe("turning", function () {
@@ -99,7 +99,7 @@ describe("Snake", function () {
   describe("growing snake", function () {
     it("grows", function () {
       this.snake.addSegment();
-      expect(this.snake.getSegments()).toEqual([[0,0], [0, 1], [0, 2]]);
+      expect(this.snake.position()).toEqual([[0,0], [0, 1], [0, 2]]);
     });
   });
 
